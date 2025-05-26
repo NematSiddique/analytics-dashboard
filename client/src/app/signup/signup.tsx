@@ -7,17 +7,14 @@ export default function SignupPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const router = useRouter();
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    setSuccess("");
     try {
       await axios.post("http://localhost:4000/api/signup", { username, password });
-      setSuccess("Account created! You can now log in.");
-      setTimeout(() => router.push("/login"), 1500);
+      router.push("/login");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         setError(err.response?.data?.error || "Signup failed");
@@ -46,7 +43,6 @@ export default function SignupPage() {
         required
       />
       {error && <div className="text-red-500">{error}</div>}
-      {success && <div className="text-green-600">{success}</div>}
       <button className="bg-blue-600 text-white p-2 rounded" type="submit">Sign Up</button>
       <a href="/login" className="text-blue-600 underline">Back to login</a>
     </form>
