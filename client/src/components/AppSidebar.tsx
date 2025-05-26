@@ -95,7 +95,7 @@ const AppSidebar = () => {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link href={item.url}>
-                      <item.icon />
+                      <item.icon size={20} /> {/* Set a fixed size */}
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
@@ -117,7 +117,7 @@ const AppSidebar = () => {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <Link href="/#">
-                    <Projector />
+                    <Projector size={20} />
                     See All Projects
                   </Link>
                 </SidebarMenuButton>
@@ -125,7 +125,7 @@ const AppSidebar = () => {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <Link href="/#">
-                    <Plus />
+                    <Plus size={20} />
                     Add Project
                   </Link>
                 </SidebarMenuButton>
@@ -148,7 +148,7 @@ const AppSidebar = () => {
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
                       <Link href="/#">
-                        <Projector />
+                        <Projector size={20} />
                         See All Projects
                       </Link>
                     </SidebarMenuButton>
@@ -156,7 +156,7 @@ const AppSidebar = () => {
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
                       <Link href="/#">
-                        <Plus />
+                        <Plus size={20} />
                         Add Project
                       </Link>
                     </SidebarMenuButton>
@@ -174,7 +174,7 @@ const AppSidebar = () => {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <Link href="/#">
-                    <Projector />
+                    <Projector size={20} />
                     See All Projects
                   </Link>
                 </SidebarMenuButton>
@@ -182,7 +182,7 @@ const AppSidebar = () => {
                   <SidebarMenuSubItem>
                     <SidebarMenuSubButton asChild>
                       <Link href="/#">
-                        <Plus />
+                        <Plus size={20} />
                         Add Project
                       </Link>
                     </SidebarMenuSubButton>
@@ -190,7 +190,7 @@ const AppSidebar = () => {
                   <SidebarMenuSubItem>
                     <SidebarMenuSubButton asChild>
                       <Link href="/#">
-                        <Plus />
+                        <Plus size={20} />
                         Add Category
                       </Link>
                     </SidebarMenuSubButton>
@@ -207,7 +207,7 @@ const AppSidebar = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton>
-                  <User2 /> John Doe <ChevronUp className="ml-auto" />
+                  <User2 size={20} /> John Doe <ChevronUp size={20} className="ml-auto" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
