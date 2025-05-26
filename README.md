@@ -7,7 +7,7 @@ This project demonstrates a responsive, themeable dashboard UI with data tables,
 
 ## Live Demo
 
-[Analytics Dashboard](https://analytics-dashboard-nine-liard.vercel.app/)
+[Analytics Dashboard](https://analytics-dashboard-alpha-eight.vercel.app)
 
 ---
 
