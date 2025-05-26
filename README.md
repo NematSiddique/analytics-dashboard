@@ -1,7 +1,13 @@
 # Analytics Dashboard
 
-A modern analytics dashboard built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [Tailwind CSS](https://tailwindcss.com/), and [shadcn/ui](https://ui.shadcn.com/).  
-This project demonstrates a responsive, themeable dashboard UI with data tables, cards, and user menus.
+A modern analytics dashboard built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [Tailwind CSS](https://tailwindcss.com/), [shadcn/ui](https://ui.shadcn.com/), and a Node.js/Express/MongoDB backend.  
+This project demonstrates a responsive, themeable dashboard UI with data tables, cards, user authentication (JWT), and a full-stack architecture.
+
+---
+
+## Live Demo
+
+[Analytics Dashboard](https://analytics-dashboard-nine-liard.vercel.app/)
 
 ---
 
@@ -27,7 +33,11 @@ Build a modern, professional analytics dashboard that displays data insights thr
    - Date range picker to filter data dynamically
    - Smooth animations and transitions
 
-3. **Performance Requirements**
+3. **Authentication**
+   - JWT-based authentication (signup, login, protected routes)
+   - MongoDB for persistent user storage
+
+4. **Performance Requirements**
    - Fast loading times
    - Smooth interactions and animations
    - Optimized for performance (consider lazy loading, memoization)
@@ -42,6 +52,8 @@ Build a modern, professional analytics dashboard that displays data insights thr
 - 📊 **Data Table** with sorting, pagination, and selection (powered by [@tanstack/react-table](https://tanstack.com/table/v8))
 - 🌗 **Dark/Light Theme** toggle
 - 👤 **User Menu** with avatar and dropdown
+- 🔒 **JWT Authentication** (signup, login, protected API routes)
+- 🗄️ **MongoDB** for persistent user storage
 - 📱 **Responsive** layout
 - 🔗 **Remote image support** (Pinterest, Unsplash, etc.)
 - 🧪 **TypeScript** for type safety
@@ -92,21 +104,34 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ```
 analytics-dashboard/
 │
-├── src/                    # Application source code
-│   ├── app/                # Next.js app directory (routes, pages, layouts)
-│   │   ├── payments/       # Payments data table and related pages
-│   │   └── ...             # Other app routes and features
-│   ├── components/         # Reusable UI components (Navbar, Sidebar, etc.)
-│   ├── lib/                # Utility functions
-│   ├── hooks/              # Custom React hooks
-│   └── styles/             # Global styles (Tailwind)
+├── client/                  # Next.js frontend
+│   ├── src/
+│   │   ├── app/             # App directory (routes, pages, layouts)
+│   │   │   ├── page.tsx     # Signup page as home
+│   │   │   ├── login/       # Login page
+│   │   │   └── ...          # Other app routes and features
+│   ├── components/          # Reusable UI components (Navbar, Sidebar, etc.)
+│   ├── lib/                 # Utility functions
+│   ├── hooks/               # Custom React hooks
+│   └── styles/              # Global styles (Tailwind)
+│   ├── public/              # Static assets (favicon, images)
+│   ├── next.config.ts       # Next.js configuration
+│   ├── components.json      # shadcn/ui configuration
+│   └── package.json         # Client project metadata and scripts
 │
-├── public/                 # Static assets (favicon, images)
+├── server/                  # Express backend
+│   ├── src/
+│   │   ├── controllers/     # Auth controller (signup, login)
+│   │   ├── middleware/      # JWT middleware
+│   │   ├── models/          # Mongoose models (User)
+│   │   ├── routes/          # Auth routes
+│   │   ├── types/           # Custom TypeScript types
+│   │   ├── lib/             # DB connection helper
+│   │   └── index.ts         # Server entrypoint
+│   ├── package.json         # Server project metadata and scripts
+│   └── tsconfig.json        # Server TypeScript config
 │
-├── next.config.ts          # Next.js configuration (remote image domains)
-├── components.json         # shadcn/ui configuration
-├── package.json            # Project metadata and scripts
-└── README.md               # Project documentation
+└── README.md                # Project documentation
 ```
 
 ---
@@ -137,20 +162,20 @@ This project is easily deployable on [Vercel](https://vercel.com/) (recommended 
 
 ## Scripts
 
+### Server (Express backend)
+
+- `npm run dev` — Start Express server with ts-node (development)
+- `npm run build` — Compile TypeScript to JavaScript
+- `npm start` — Start compiled Express server (production)
+- `npm run lint` — Run ESLint
+- `npm run lint --fix` — Auto-fix lint errors
+
+### Client (Next.js frontend)
+
 - `pnpm dev` — Start development server
 - `pnpm build` — Build for production
 - `pnpm lint` — Run ESLint
 - `pnpm lint --fix` — Auto-fix lint errors
-
----
-
-## Contribution
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Open a pull request
 
 ---
 
